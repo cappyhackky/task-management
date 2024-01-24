@@ -54,7 +54,7 @@ This is a task management application built with React. That allows users to cre
 - Dashboard
 ![Dashboard](/public/img/UI/Dashboard.png)
 - Add New Task
-![Dashboard](/public/img/UI/)
+![Dashboard](/public/img/UI/AddTask.png)
 
 ## Acknowledgments
 
