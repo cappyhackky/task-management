@@ -149,6 +149,7 @@ const TaskList = () => {
     const storedTasks = (JSON.parse(localStorage.tasks)) ?? []
     setInitialTasks(storedTasks);
     setTasks(storedTasks);
+    document.title="Home"
   }, []);
 
   return (

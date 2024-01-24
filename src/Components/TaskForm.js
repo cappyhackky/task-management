@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 
 const TaskForm = () => {
@@ -52,6 +52,10 @@ const TaskForm = () => {
       });
     }
   }
+
+  useEffect(()=>{
+    document.title="Add Task"
+  },[])
   
   return (
     <>
