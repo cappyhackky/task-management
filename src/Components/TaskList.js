@@ -22,6 +22,7 @@ const TaskList = () => {
     console.log(updatedTasks);
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
     setTasks(updatedTasks);
+    toast.success("Task Deleted!!!");
   };
 
   const editTask = (taskId) => {
@@ -60,16 +61,6 @@ const TaskList = () => {
     return ((tasks.filter((task) => task.status === 'completed')).length);
   };
 
-
-  // const handlePriorityChange = (priority) => {
-  //   setFilterPriority(priority);
-  //   filterTasks(searchTerm, priority, !showCompleted);
-  // };
-
-  // const searchTasks = (searchQuery) => {
-  //   setSearchTerm(searchQuery);
-  //   filterTasks(searchQuery, filterPriority, !showCompleted);
-  // };
   const toggleShowCompleted = () => {
     setShowCompleted(!showCompleted);
     let filteredTasks = initialTasks.slice();
@@ -78,29 +69,6 @@ const TaskList = () => {
     }
     setTasks(filteredTasks);
   };
-
-
-  // const filterTasks = (searchTerm, priority, hideCompleted) => {
-  //   console.log(priority);
-  //   let filteredTasks = initialTasks.slice();
-  //   if (filterPriority !== 'All') {
-  //     filteredTasks = filteredTasks.filter((task) => task.priority === priority);
-  //   }
-  //   if (hideCompleted) {
-  //     filteredTasks = filteredTasks.filter((task) => task.status !== 'completed');
-  //   }
-  //   if (searchTerm !== '') {
-  //     filteredTasks = filteredTasks.filter(
-  //       (task) =>
-  //         task.taskId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //         task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //         task.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //         task.priority.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //   }
-  //   setTasks(filteredTasks);
-  // }
-
 
   //Search functionality
 
@@ -277,7 +245,7 @@ const TaskList = () => {
                       className="btn btn-success btn-sm"
                       title="Completed"
                       id={task.taskId}
-                      disabled={!(task.status === "completed")}
+                      disabled={(task.status === "completed")}
                       onClick={() => completedTask(task.taskId)}
                     >
                       <FaRegCheckCircle />
